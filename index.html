@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>Villa Shop — cosas lindas para todos los días</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="announcement">ENVÍOS GRATIS EN COMPRAS MAYORES A $50.000</div>
+  <header class="site-header">
+    <a class="brand" href="#" data-view="shop" aria-label="Villa Shop, inicio">
+      <span class="brand-mark">V</span>
+      <span>villa<span class="brand-light">shop</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#productos">Tienda</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+    <div class="header-actions">
+      <button class="admin-link" id="admin-toggle" type="button">Administración</button>
+      <button class="cart-button" id="cart-open" type="button" aria-label="Abrir carrito">
+        <span class="bag-icon" aria-hidden="true">♧</span>
+        <span class="cart-label">Mi bolsa</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> HECHO PARA DISFRUTAR</p>
+        <h1>Pequeños gustos,<br><em>grandes momentos.</em></h1>
+        <p class="hero-description">Encontrá tus favoritos para hacer de cada día algo especial. Elegidos con cariño, para vos.</p>
+        <a class="button button-dark" href="#productos">Descubrir productos <span aria-hidden="true">↗</span></a>
+        <div class="hero-note"><span class="note-star">✳</span> Un rinconcito especial, cerca tuyo.</div>
+      </div>
+      <div class="hero-art" aria-label="Selección de productos Villa Shop">
+        <div class="hero-blob"></div>
+        <div class="floating-note note-top">favoritos<br>de la semana <span>✿</span></div>
+        <div class="hero-product-card">
+          <div class="hero-product-image"><span class="product-sticker">♡</span><span class="hero-product-shape">✿</span></div>
+          <div class="hero-product-caption"><span>Una pausa para vos</span><span>✦ ✦ ✦ ✦ ✦</span></div>
+        </div>
+        <div class="floating-note note-bottom"><span>VILLA SHOP</span><br>comprá lindo, viví lindo</div>
+        <div class="hero-sparkle sparkle-one">✳</div>
+        <div class="hero-sparkle sparkle-two">✦</div>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Beneficios">
+      <div><span class="benefit-icon">✿</span><span><strong>Elegido con cariño</strong><small>Productos que nos encantan</small></span></div>
+      <div><span class="benefit-icon">↗</span><span><strong>Envíos a todo el país</strong><small>Recibí tu pedido en casa</small></span></div>
+      <div><span class="benefit-icon">♡</span><span><strong>Compra simple y segura</strong><small>Estamos para ayudarte</small></span></div>
+    </section>
+
+    <section class="products-section" id="productos">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">NUESTRA SELECCIÓN</p>
+          <h2>Encontrá tu <em>favorito.</em></h2>
+        </div>
+        <p class="section-intro">Cosas lindas, prácticas y especiales.<br>Todo en un mismo lugar.</p>
+      </div>
+      <div class="filter-row" id="category-filters" aria-label="Filtrar por categoría"></div>
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <section class="story-section" id="nosotros">
+      <div class="story-flower">✿</div>
+      <p class="eyebrow">UN POCO DE VILLA</p>
+      <h2>Elegimos cada cosa<br>pensando en <em>vos.</em></h2>
+      <p>Villa Shop es ese lugar donde siempre encontrás algo que te gusta. Gracias por elegirnos y ser parte de esta historia.</p>
+      <a href="#productos" class="text-link">Conocé la tienda <span>→</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark">V</span><span>villa<span class="brand-light">shop</span></span></a>
+    <p>Hecho con cariño. © <span id="current-year"></span> Villa Shop</p>
+    <a href="mailto:hola@villashop.com">¿Necesitás ayuda? Escribinos</a>
+  </footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Tu bolsa" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">TU SELECCIÓN</p><h2>Mi bolsa <span id="drawer-count">(0)</span></h2></div><button class="icon-button" id="cart-close" aria-label="Cerrar carrito">×</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-empty" id="cart-empty"><span>♡</span><h3>Tu bolsa está esperando</h3><p>Agregá algo lindo para empezar.</p></div>
+    <div class="cart-footer" id="cart-footer">
+      <div class="subtotal"><span>Subtotal</span><strong id="cart-subtotal">$0</strong></div>
+      <p class="shipping-note">El envío se coordina una vez confirmado el pedido.</p>
+      <button class="button button-dark button-full" id="checkout-open" type="button">Continuar con mi pedido <span>→</span></button>
+    </div>
+  </aside>
+
+  <dialog class="checkout-dialog" id="checkout-dialog">
+    <form id="checkout-form">
+      <div class="dialog-heading"><div><p class="eyebrow">UN ÚLTIMO PASO</p><h2>Tus datos de entrega</h2></div><button class="icon-button" id="checkout-close" type="button" aria-label="Cerrar">×</button></div>
+      <p class="form-intro">El pedido quedará pendiente hasta que Villa Shop lo confirme.</p>
+      <label>Nombre y apellido<input name="name" autocomplete="name" required maxlength="100" placeholder="Tu nombre"></label>
+      <label>Teléfono<input name="phone" type="tel" autocomplete="tel" required maxlength="30" placeholder="Tu número de contacto"></label>
+      <label>Dirección de entrega<input name="address" autocomplete="street-address" required maxlength="160" placeholder="Calle, número, ciudad"></label>
+      <label>Nota para la tienda <span class="optional">(opcional)</span><textarea name="note" rows="2" maxlength="300" placeholder="¿Alguna indicación especial?"></textarea></label>
+      <div class="checkout-total"><span>Total estimado</span><strong id="checkout-total">$0</strong></div>
+      <button class="button button-dark button-full" type="submit">Enviar pedido <span>→</span></button>
+    </form>
+  </dialog>
+
+  <section class="admin-panel" id="admin-panel" hidden>
+    <div class="admin-top">
+      <div><p class="eyebrow">PANEL DE TIENDA</p><h1>Gestión de <em>pedidos.</em></h1><p class="admin-subtitle">Revisá los pedidos y actualizá su estado.</p></div>
+      <button class="button button-outline" id="back-to-shop" type="button">← Volver a la tienda</button>
+    </div>
+    <div class="admin-stats" id="admin-stats"></div>
+    <div class="admin-orders-heading"><h2>Pedidos recibidos</h2><button class="text-button" id="clear-orders" type="button">Limpiar pedidos de prueba</button></div>
+    <div class="orders-list" id="orders-list"></div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
